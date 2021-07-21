@@ -19,6 +19,11 @@ Our platform is made up client facing applications using [React.js](https://crea
 
 We will review some of the highlevel topics within React such as functional components, JSX, conditional rendering and basic hooks.
 
+_Requirements_
+
+* [Visual Studio Code](https://code.visualstudio.com/download)
+  * [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
+
 ### React Fundamentals
 
 1. Create a component that displays the tree
