@@ -1,25 +1,32 @@
-import { ParsedUrlQuery } from 'querystring'
 import { useMemo } from 'react'
-import { useHistory, useLocation, useParams, useRouteMatch } from 'react-router-dom'
+import { useParams, useLocation, useHistory, useRouteMatch, match } from 'react-router-dom'
+import * as H from 'history'
+import * as queryString from 'query-string'
+
+type SearchValue = string | boolean | number
 
 export interface Router {
-  push: (path: string) => void
-  replace: (path: string) => void
+  push(path: H.Path, state?: H.LocationState): void
+  push(location: H.LocationDescriptor<H.LocationState>): void
+  replace(path: H.Path, state?: H.LocationState): void
+  replace(location: H.LocationDescriptor<H.LocationState>): void
   pathname: string
-  query: ParsedUrlQuery
-  match: any
-  location: any
-  history: any
+  query: Record<string, string | string[] | null>
+  params: Record<string, string>
+  search: Record<string, SearchValue | SearchValue[] | null>
+  match: match<any>
+  location: H.Location
+  history: H.History
 }
 
 export const useRouter = (): Router => {
-  const params = useParams()
+  const params = useParams<any>()
 
-  const location = useLocation()
+  const location = useLocation<any>()
 
-  const history = useHistory()
+  const history = useHistory<any>()
 
-  const match = useRouteMatch()
+  const match = useRouteMatch<any>()
 
   // Memoize so that a new object is only returned if something changes
 
@@ -35,7 +42,12 @@ export const useRouter = (): Router => {
       // so that they can be used interchangeably.
       // Example: /:topic?sort=popular -> { topic: "react", sort: "popular" }
 
-      query: params,
+      query: {
+        ...queryString.parse(location.search), // Convert string to obje, {  }ct
+        ...params,
+      },
+      params,
+      search: queryString.parse(location.search, { parseBooleans: true, parseNumbers: true }),
 
       // Include match, location, history objects so we have
       // access to extra React Router functionality if needed.

@@ -10,5 +10,5 @@ export interface ProgramNode {
   type: ProgramNodeType
   name: string
   description?: string
-  nodes: ProgramNode[]
+  nodes?: ProgramNode[]
 }

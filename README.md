@@ -8,6 +8,8 @@ Our platform is made up client facing applications using [React.js](https://crea
 
 > **View location details**
 >
+> ![Frontend Design](./docs/frontend-example.png)
+>
 > _As a director, I want to view specific location details within my company so that better manage and report on sales and engagement per location._
 >
 > Acceptance Criteria

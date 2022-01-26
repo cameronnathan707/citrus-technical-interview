@@ -11,13 +11,14 @@ export const LocationTree = ({ currentNode, tree }: IProps = {}) => {
       {/* 
         TODO: Display Program's Location Tree
 
-        * Indent the location deeper the tree
-        * Add an icon using React FontAwesome
-          * program - faGlobe
-          * region - faLayerGroup
-          * chapter - faMapMarkerAlt
-        * Display the name of the location
-        * Highlight the current node
+      * Indent the location deeper the tree
+      * Add an icon using React FontAwesomeIcon
+      * program - faGlobe
+      * region - faLayerGroup
+      * chapter - faMapMarkerAlt
+      * Display the name of the location
+      * Highlight the current node
+      * Display the location count on all nodes expect location nodes 
       */}
     </ul>
   )
