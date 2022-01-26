@@ -972,9 +972,23 @@
         },
         {
           "id": "loc_wIUcJymWDUMp0FEU",
-          "type": "chapter",
+          "type": "region",
           "name": "Regina",
-          "description": "We work to ensure that no kid is ever left watching from the sidelines in Regina."
+          "description": "We work to ensure that no kid is ever left watching from the sidelines in Regina.",
+          "nodes": [
+            {
+              "id": "loc_7uNiDS4fobdeFfq7",
+              "type": "chapter",
+              "name": "East Regina",
+              "description": "We work to ensure that no kid is ever left watching from the sidelines in Regina."
+            },
+            {
+              "id": "loc_PEV3QglVedZH9iN6",
+              "type": "chapter",
+              "name": "West Regina",
+              "description": "We work to ensure that no kid is ever left watching from the sidelines in Regina."
+            }
+          ]
         },
         {
           "id": "loc_L40F6pw9obRQTArg",
