@@ -1,4 +1,5 @@
 import { LocationTree } from '../components/LocationTree/LocationTree'
+import useFetchProgramTree from '../hooks/use-fetch-program-tree'
 
 export const ManageLocations = () => {
   /* 
@@ -7,11 +8,13 @@ export const ManageLocations = () => {
     * Pass the tree and node to LocationTree component
     * Display the name and description of the current node
   */
+
+  const {currentNode, tree} = useFetchProgramTree();
   return (
     <div className="container my-5">
       <div className="row">
         <div className="scrollable-container col-md-4">
-          <LocationTree />
+          <LocationTree currentNode={currentNode} tree={tree}/>
         </div>
         <div className="col-md-8">
           <div className="details my-5">
