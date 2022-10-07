@@ -1,6 +1,8 @@
 import { findChapterCount } from '../../constants/find-chapter-count'
 import { ProgramNode } from '../../interfaces/program-node'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import '../../../src/App.scss';
+
 
 interface IProps {
   currentNode?: ProgramNode
@@ -23,32 +25,44 @@ export const LocationTree = ({ currentNode, tree }: IProps = {}) => {
       * Display the location count on all nodes expect location nodes 
       */}
       {tree?.nodes?.map(program =>
-        (<h1>
-          <FontAwesomeIcon icon="globe" />
-          { program.name}
-          <h2> {findChapterCount}</h2>
-        </h1>
-        // {program.nodes.map(region =>
-        //   (<h1>
-        //     <FontAwesomeIcon icon="faLayerGroup" />
-        //     { region.name}
-        //     <h2 style ="background-color: green"> {findChapterCount}</h2>
-        //   </h1>)
-        //   {region.nodes.map(chapter =>
-        //     (<h1>
-        //       <FontAwesomeIcon icon="faLayerGroup" />
-        //       { chapter.name}
-        //     </h1>)
-        //   )}
-        
-        
-        )
-        )}
-      // map through the regions
-      // map through the chapters 
-      // display correct icon and name
-      // highlight selected region???
-      // display count of nodes in node
+        {
+          return (
+          <>
+            <p className='program-heading'>
+              {/* <FontAwesomeIcon icon="globe" /> */}
+              {program.name}
+              <span className='chapter-count'> {findChapterCount(program)}</span>
+            </p>
+              {
+                program?.nodes?.map(region =>
+                  {
+                    return (
+                    <>
+                      <p className='region-heading'>
+                        {/* <FontAwesomeIcon icon="globe" /> */}
+                        {region.name}
+                        <span> {findChapterCount(region)}</span>
+                      </p>
+                      {
+                          region?.nodes?.map(chapter =>
+                            {
+                              return (
+                                <p className='chapter-heading'>
+                                  {/* <FontAwesomeIcon icon="globe" /> */}
+                                  {chapter.name}
+                                </p>
+                              )
+                            }
+                          )
+                      }
+                    </>
+                    )
+                  }
+             )}
+          </>
+          )
+        }
+     )}
     </ul>
   )
 }

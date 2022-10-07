@@ -8,12 +8,12 @@ export const findChapterCount = (node: ProgramNode) => {
     * If the node is a `chapter` it shouldn't count the nodes below
     * Count all the nodes within the tree with type of `chapter` within the program tree
   */
-  
   if (node.type === ProgramNodeTypeEnum.program) {
     // @ts-ignore
+    
     return node.nodes?.reduce((chapterCount: number, regions: ProgramNode) => chapterCount + regions?.nodes.length, 0);
   }
-  else if (node.type == "region") {
+  else if (node.type === ProgramNodeTypeEnum.region) {
    return node.nodes?.length;
   } else {
     return;
