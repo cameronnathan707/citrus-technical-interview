@@ -1,6 +1,6 @@
 import { findChapterCount } from '../../constants/find-chapter-count'
 import { ProgramNode } from '../../interfaces/program-node'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../../../src/App.scss';
 
 
@@ -22,10 +22,10 @@ export const LocationTree = ({ currentNode, tree }: IProps = {}) => {
       * chapter - faMapMarkerAlt
       * Display the name of the location
       * Highlight the current node
-      * Display the location count on all nodes expect location nodes 
+      * Display the location count on all nodes expect location nodes
       */}
       <p className='program-heading'>
-        {/* <FontAwesomeIcon icon="globe" /> */}
+        <FontAwesomeIcon icon="globe" />
         {console.log(currentNode)}
         {tree?.name}
         <span className='chapter-count'> {findChapterCount(tree)}</span>
