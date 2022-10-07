@@ -8,4 +8,9 @@ export const findNode = (node: ProgramNode, id?: string) => {
     * Find the node that matches the id within the program tree
     * If the node cannot be found, return undefined
   */
+    if (!id) {
+      return node;
+    }
+    const child = node.nodes?.find(tempNode => tempNode.id === id);
+    return child;
 }
